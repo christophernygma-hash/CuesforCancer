@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 36 23% 96%;
+    --foreground: 0 0% 18%;
+    --card: 36 23% 96%;
+    --card-foreground: 0 0% 18%;
+    --popover: 36 23% 96%;
+    --popover-foreground: 0 0% 18%;
+    --primary: 330 34% 27%;
+    --primary-foreground: 36 23% 96%;
+    --secondary: 32 22% 90%;
+    --secondary-foreground: 0 0% 18%;
+    --muted: 32 22% 90%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 32 43% 65%;
+    --accent-foreground: 0 0% 18%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 32 22% 85%;
+    --input: 32 22% 85%;
+    --ring: 32 43% 65%;
+    --radius: 0.625rem;
+    --sidebar-background: 36 23% 96%;
+    --sidebar-foreground: 0 0% 18%;
+    --sidebar-primary: 330 34% 27%;
+    --sidebar-primary-foreground: 36 23% 96%;
+    --sidebar-accent: 32 22% 90%;
+    --sidebar-accent-foreground: 0 0% 18%;
+    --sidebar-border: 32 22% 85%;
+    --sidebar-ring: 32 43% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-cream text-charcoal font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .section-label {
+    @apply font-mono text-xs uppercase tracking-[0.2em] text-charcoal-light;
+  }
+  
+  .heading-xl {
+    @apply font-display text-5xl md:text-6xl lg:text-7xl font-normal leading-tight;
+  }
+  
+  .heading-lg {
+    @apply font-display text-4xl md:text-5xl font-normal leading-tight;
+  }
+  
+  .heading-md {
+    @apply font-display text-2xl md:text-3xl font-normal leading-snug;
+  }
+  
+  .body-lg {
+    @apply font-sans text-lg leading-relaxed;
+  }
+  
+  .body-default {
+    @apply font-sans text-base leading-relaxed;
+  }
+  
+  .spotlight-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .spotlight-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(212, 165, 116, 0.12),
+      transparent 40%
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-amber text-charcoal font-sans font-medium text-sm tracking-wide rounded-full transition-all duration-300 hover:bg-amber-light hover:shadow-lg hover:-translate-y-0.5;
+  }
+  
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-8 py-4 border-2 border-cream text-cream font-sans font-medium text-sm tracking-wide rounded-full transition-all duration-300 hover:bg-cream hover:text-plum;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-500 hover:-translate-y-2 hover:shadow-card-hover;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .will-change-transform {
+    will-change: transform;
+  }
+  
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F8F5F0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4A574;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C49A6A;
+}
